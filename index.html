@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MESA PADEL — Play Different</title>
+    <meta
+      name="description"
+      content="MESA PADEL: klub padel premium. Demo website UTS Pemrograman Web Dasar."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;600;700&family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#about">Lewati ke konten</a>
+
+    <header class="nav" id="nav">
+      <a href="#home" class="logo" aria-label="MESA PADEL beranda"
+        ><svg
+          width="26"
+          height="26"
+          viewBox="0 0 26 26"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          aria-hidden="true"
+        >
+          <rect x="1" y="1" width="24" height="24" rx="3" />
+          <path d="M13 1v24M1 13h24" /></svg
+        >MESA<b>PADEL</b></a
+      >
+      <button
+        class="burger"
+        id="burger"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        aria-controls="menu"
+      >
+        <span></span><span></span>
+      </button>
+      <nav id="menu" class="menu" aria-label="Navigasi utama">
+        <a href="#about">About</a><a href="#courts">Courts</a
+        ><a href="#coaching">Coaching</a><a href="#membership">Membership</a
+        ><a href="#events">Events</a>
+        <a href="#booking" class="btn btn-lime menu-cta">Book a court</a>
+      </nav>
+      <a href="#booking" class="btn btn-lime nav-cta">Book a court</a>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="https://images.unsplash.com/photo-1658491830143-72808ca237e3?auto=format&fit=crop&w=1920&q=70"
+          aria-hidden="true"
+        >
+          <source src="DROPSHOT PADEL Promo video nottennis.com.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-shade"></div>
+        <div class="wrap hero-inner">
+          <p class="mono">MESA PADEL / Play Different</p>
+          <h1>
+            This is where<br />your game<br /><span class="lime">changes.</span>
+          </h1>
+          <p class="lead">
+            More than a court. A place to compete, connect, and discover your
+            next level.
+          </p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-lime">Book your court</a>
+            <a href="#about" class="btn btn-ghost">Explore the club</a>
+          </div>
+        </div>
+        <div class="hero-meta mono">
+          <span>Est. 2025</span><span>Your game. Your community.</span>
+        </div>
+        <div class="scroll mono" aria-hidden="true">
+          Scroll to explore<i></i>
+        </div>
+      </section>
+
+      <section class="sec navy" id="about">
+        <div class="wrap split">
+          <div class="rv">
+            <p class="mono">The Mesa experience</p>
+            <h2>Not just a game. It’s a culture.</h2>
+            <p class="muted">
+              MESA PADEL brings players together through the energy of
+              competition, the joy of movement, and a community that makes every
+              match matter.
+            </p>
+            <ul class="values">
+              <li>
+                <strong>Play with purpose.</strong
+                ><span>Every rally has a reason.</span>
+              </li>
+              <li>
+                <strong>Grow together.</strong
+                ><span>Better with a partner across the net.</span>
+              </li>
+              <li>
+                <strong>Own your moment.</strong
+                ><span>The point is yours.</span>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="photo cut rv"
+            role="img"
+            aria-label="Pemain padel melakukan rally di lapangan kaca"
+            style="
+              --img: url(https://images.unsplash.com/photo-1646649851780-d9701b7c3c04?auto=format&fit=crop&w=1400&q=70);
+            "
+          ></div>
+        </div>
+      </section>
+
+      <section class="sec" id="courts">
+        <div class="wrap">
+          <div class="head rv">
+            <h2>Your court. Your rules.</h2>
+            <p class="muted">Find the perfect space for your next match.</p>
+          </div>
+          <div class="courts" id="courtList"></div>
+        </div>
+      </section>
+
+      <section class="sec teal" id="booking">
+        <div class="wrap book">
+          <div class="rv">
+            <p class="mono">Claim your court</p>
+            <h2>Your next match starts here.</h2>
+            <p class="muted">
+              Pilih lapangan, jadwal, dan durasi. Harga diperbarui langsung.
+            </p>
+            <p class="mono note">
+              Demo booking — no payment or real reservation is processed.
+            </p>
+          </div>
+          <form id="bookForm" class="panel rv" novalidate>
+            <div class="field full">
+              <label for="fName">Nama pemesan</label>
+              <input
+                type="text"
+                id="fName"
+                placeholder="Masukkan nama lengkap"
+                autocomplete="name"
+                maxlength="40"
+                required
+              />
+              <small class="err" id="eName"></small>
+            </div>
+            <div class="field">
+              <label for="fCourt">Jenis lapangan</label
+              ><select id="fCourt" required></select
+              ><small class="err" id="eCourt"></small>
+            </div>
+            <div class="field">
+              <label for="fDate">Tanggal bermain</label
+              ><input type="date" id="fDate" required /><small
+                class="err"
+                id="eDate"
+              ></small>
+            </div>
+            <div class="field">
+              <label for="fTime">Waktu bermain</label
+              ><select id="fTime" required>
+                <option value="">Pilih waktu</option></select
+              ><small class="err" id="eTime"></small>
+            </div>
+            <div class="field">
+              <label for="fDur">Durasi</label
+              ><select id="fDur">
+                <option value="1">1 jam</option>
+                <option value="2">2 jam</option>
+                <option value="3">3 jam</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fPlayers">Jumlah pemain</label
+              ><input
+                type="number"
+                id="fPlayers"
+                min="1"
+                max="4"
+                value="4"
+                required
+              /><small class="err" id="ePlayers"></small>
+            </div>
+            <div class="field full">
+              <label for="fNotes">Catatan untuk klub (opsional)</label>
+              <textarea
+                id="fNotes"
+                rows="3"
+                maxlength="200"
+                placeholder="Contoh: kami pemain pemula, mohon siapkan bola baru."
+              ></textarea>
+              <small class="count" id="notesCount">0 / 200</small>
+            </div>
+            <fieldset class="field full checks">
+              <legend>Layanan tambahan</legend>
+              <label class="check">
+                <input
+                  type="checkbox"
+                  name="addon"
+                  value="Sewa raket"
+                  data-price="25000"
+                />
+                <span>Sewa raket <em>+Rp 25.000</em></span>
+              </label>
+              <label class="check">
+                <input
+                  type="checkbox"
+                  name="addon"
+                  value="Bola baru"
+                  data-price="15000"
+                />
+                <span>Bola baru <em>+Rp 15.000</em></span>
+              </label>
+              <label class="check">
+                <input
+                  type="checkbox"
+                  name="addon"
+                  value="Handuk &amp; air mineral"
+                  data-price="10000"
+                />
+                <span>Handuk &amp; air mineral <em>+Rp 10.000</em></span>
+              </label>
+            </fieldset>
+            <div class="field full">
+              <label class="check">
+                <input type="checkbox" id="fAgree" required />
+                <span
+                  >Saya paham ini booking simulasi, tanpa pembayaran dan
+                  reservasi nyata.</span
+                >
+              </label>
+              <small class="err" id="eAgree"></small>
+            </div>
+            <div class="sum">
+              <span class="muted" id="sumText"
+                >Pilih lapangan untuk melihat ringkasan.</span
+              ><strong id="sumPrice">Rp 0</strong>
+            </div>
+            <button class="btn btn-lime" type="submit">Confirm booking</button>
+            <p class="ok" id="bookOk" role="status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="sec lime-bg" id="membership">
+        <div class="wrap">
+          <div class="head rv">
+            <h2>Find your level.</h2>
+            <p>Play more. Get more. Harga contoh, mudah diganti.</p>
+          </div>
+          <div class="plans" id="planList"></div>
+        </div>
+      </section>
+
+      <section class="sec navy" id="coaching">
+        <div class="wrap split">
+          <div
+            class="photo cut rv"
+            role="img"
+            aria-label="Pelatih mengarahkan pemain padel"
+            style="
+              --img: url(https://images.unsplash.com/photo-1770230901556-4e1c0bacfb09?auto=format&fit=crop&w=1400&q=70);
+            "
+          ></div>
+          <div class="rv">
+            <p class="mono">Level up</p>
+            <h2>Better moves. Better game.</h2>
+            <div
+              class="tabs"
+              role="tablist"
+              aria-label="Level coaching"
+              id="tabs"
+            >
+              <button
+                role="tab"
+                aria-selected="true"
+                aria-controls="tabPanel"
+                id="t0"
+                data-i="0"
+              >
+                Beginner
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabPanel"
+                id="t1"
+                data-i="1"
+                tabindex="-1"
+              >
+                Intermediate
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="tabPanel"
+                id="t2"
+                data-i="2"
+                tabindex="-1"
+              >
+                Advanced
+              </button>
+            </div>
+            <div
+              id="tabPanel"
+              role="tabpanel"
+              aria-labelledby="t0"
+              class="tabpanel"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="events">
+        <div class="wrap">
+          <div class="head rv">
+            <h2>The game is better together.</h2>
+            <p class="muted">
+              Tanggal event adalah contoh, bukan jadwal aktual.
+            </p>
+          </div>
+          <div class="events" id="eventList"></div>
+        </div>
+      </section>
+
+      <section class="sec stats" aria-label="Statistik demonstrasi">
+        <div class="wrap grid4">
+          <div>
+            <b class="num" data-to="12">0</b><span>Courts available</span>
+          </div>
+          <div>
+            <b class="num" data-to="850">0</b><span>Active community</span>
+          </div>
+          <div>
+            <b class="num" data-to="320">0</b><span>Coaching sessions</span>
+          </div>
+          <div>
+            <b class="num" data-to="9400">0</b><span>Matches played</span>
+          </div>
+        </div>
+        <p class="mono center">Angka demonstrasi, bukan data klub nyata.</p>
+      </section>
+
+      <section class="sec teal">
+        <div class="wrap">
+          <div class="head rv">
+            <h2>Real connections. Better experiences.</h2>
+            <p class="muted">Testimonial contoh dengan nama fiktif.</p>
+          </div>
+          <div
+            class="car"
+            id="car"
+            tabindex="0"
+            aria-label="Carousel testimonial"
+          >
+            <div class="track" id="track"></div>
+            <div class="car-ctl">
+              <button id="prev" aria-label="Sebelumnya">←</button>
+              <div id="dots"></div>
+              <button id="next" aria-label="Berikutnya">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="wrap center rv">
+          <h2>Your court is calling.</h2>
+          <p class="lead">
+            Step onto the court. Find your people. Make every match count.
+          </p>
+          <a href="#booking" class="btn btn-lime">Book your court</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap fgrid">
+        <div>
+          <a href="#home" class="logo">MESA<b>PADEL</b></a>
+          <p class="muted">
+            Sport, community, performance, and modern lifestyle.
+          </p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="#about">About</a><a href="#courts">Courts</a
+          ><a href="#coaching">Coaching</a><a href="#membership">Membership</a
+          ><a href="#events">Events</a>
+        </nav>
+        <div class="muted">
+          <p>Kontak: [EVAN]</p>
+          <p>Alamat: [JANITRA]</p>
+          <p>Sosial media: [PEVANJANITRA]</p>
+          <p>Jam buka demo: 07.00–22.00</p>
+        </div>
+      </div>
+      <p class="mono center">
+        © 2026 EVAN JANITRA PRABANDARA RAUUF || A12.2025.07363 — Proyek UTS Pemrograman Web Dasar
+      </p>
+    </footer>
+    <button class="top" id="top" aria-label="Kembali ke atas">↑</button>
+
+    <div class="modal" id="modal" hidden>
+      <div
+        class="dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mTitle"
+      >
+        <button class="x" id="mClose" aria-label="Tutup">×</button>
+        <h3 id="mTitle"></h3>
+        <div id="mBody"></div>
+        <div class="row" id="mActions"></div>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
